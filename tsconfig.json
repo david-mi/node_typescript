@@ -1,23 +1,22 @@
 {
   "compilerOptions": {
-    /* Base Options: */
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "target": "es2022",
+    "target": "ESNext",
     "allowJs": true,
     "resolveJsonModule": true,
     "moduleDetection": "force",
     "isolatedModules": true,
-    /* Strictness */
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
-    /* If transpiling with TypeScript: */
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
     "module": "NodeNext",
     "outDir": "dist",
     "sourceMap": true,
     "lib": [
       "es2022"
-    ]
+    ],
   }
 }

@@ -1,12 +1,7 @@
 import express from "express";
-import dotenv from "dotenv";
-dotenv.config();
+import { chatbotRouter } from "./routes/index.js";
 const app = express();
-const port = process.env.PORT || 3000;
-app.get("/", (req, res) => {
-    res.send("Express + TypeScript Server");
-});
-app.listen(port, () => {
-    console.log(`[server]: Server is running at http://localhost:${port}`);
-});
+app.use(express.json());
+app.use("/api/chatbot", chatbotRouter);
+app.listen(process.env.PORT, () => console.log(`[server]: running on PORT ${process.env.PORT}...`));
 //# sourceMappingURL=index.js.map

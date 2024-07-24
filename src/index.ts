@@ -1,22 +1,7 @@
-import express, { type Express, type Request, type Response } from "express";
-import dotenv from "dotenv";
-import OpenAI from "openai";
-
-dotenv.config();
-const openai = new OpenAI({
-  organization: process.env.ORGANIZATION_ID,
-  project: process.env.PROJECT_ID,
-});
-
+import express, { type Express } from "express";
+import { chatbotRouter } from "./routes/index.js";
 
 const app: Express = express();
-const port = process.env.PORT || 3000;
-
-app.get("/", async (req: Request, res: Response) => {
-
-  res.json({ message: "Express + TypeScript Server" });
-});
-
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
-});
+app.use(express.json())
+app.use("/api/chatbot", chatbotRouter)
+app.listen(process.env.PORT, () => console.log(`[server]: running on PORT ${process.env.PORT}...`));
